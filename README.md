@@ -21,5 +21,3 @@ This 5-day hands on training is designed to equip novice to intermediate develop
 * MVC Architecture
 * Managing Gems
 * Anatomy of a Rails Project
-
-### Day 2
