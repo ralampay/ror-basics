@@ -309,4 +309,4 @@ So, while Ruby technically passes references **by value**, the behavior depends 
 gem install httparty
 ```
 
-2. (https://official-joke-api.appspot.com/jokes/programming/random)[https://official-joke-api.appspot.com/jokes/programming/random)
+2. [https://official-joke-api.appspot.com/jokes/programming/random](https://official-joke-api.appspot.com/jokes/programming/random)
