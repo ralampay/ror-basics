@@ -26,6 +26,12 @@ We can rollback (disregard) the latest migration by issuing the command:
 rails db:rollback
 ```
 
+Similary we can drop everything with:
+
+```bash
+rails db:drop
+```
+
 ### Adding Columns
 
 To add a column in a migration in a migration file, the `change` method put in the following:
