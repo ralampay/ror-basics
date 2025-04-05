@@ -1,5 +1,9 @@
 # Setup our Database
 
+By default, Rails uses a database engine called `sqlite`. You can use the following online app to view your database:
+
+[https://sqliteviewer.app/](https://sqliteviewer.app/)
+
 ## Creating our database
 
 Creates our database according to `config/database.yml`
@@ -14,6 +18,12 @@ Performs a migration from our `migration files` to the database.
 
 ```bash
 rails db:migrate
+```
+
+We can rollback (disregard) the latest migration by issuing the command:
+
+```bash
+rails db:rollback
 ```
 
 ### Adding Columns
@@ -43,4 +53,18 @@ To remove a column:
 
 ```ruby
 remove_column :table_name, :field_name
+```
+
+## Interacting with Models
+
+Tables are often mapped to Ruby models under `app/models`. We can interact with the database via these models. One way to test things out is via an interactive console which is activated using the command:
+
+```bash
+rails console
+```
+
+Each line in the console is Ruby code that can be interpretted. Although because we are interacting with a live database, any change here will affect the underlying data. If we want to simply test things out and roll back all the changes we made in the console, we can instead issue:
+
+```bash
+rails console --sandbox
 ```
