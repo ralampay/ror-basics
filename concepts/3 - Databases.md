@@ -68,3 +68,30 @@ Each line in the console is Ruby code that can be interpretted. Although because
 ```bash
 rails console --sandbox
 ```
+
+To save a record, we can call the `.save` method of an instance of our model. For example:
+
+```ruby
+student = Student.new
+student.first_name = "John"
+student.last_name = "Doe"
+student.save
+```
+
+To query all records from a table, we can do:
+
+```ruby
+students = Student.all
+```
+
+To query a single record from a table, we can do:
+
+```ruby
+student = Student.find(1)
+```
+
+where `1` is the id of the student. Take note though that if student with id `1` is not found, Rails will throw an error. To instead return `nil` (no value), we can do:
+
+```ruby
+student = Student.find_by_id(1)
+```
