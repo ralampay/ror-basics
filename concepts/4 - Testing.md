@@ -44,3 +44,31 @@ To run the test we execute:
 ```bash
 rspec spec
 ```
+
+## Adding Dummy Data with `factory_bot_rails` and `faker`
+
+Add the following to your `Gemfile`:
+
+```ruby
+group :development, :test do
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem "faker"
+end
+```
+
+In a `factories` folder we can now have an `rb` file containing:
+
+```ruby
+FactoryBot.define do
+    factory :model_name do
+        first_name { Faker::Name.first_name }
+    end
+end
+```
+
+To call it in a test:
+
+```ruby
+let(:model) { FactoryBot.create(:model) }
+```
