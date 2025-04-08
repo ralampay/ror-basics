@@ -101,3 +101,48 @@ where `1` is the id of the student. Take note though that if student with id `1`
 ```ruby
 student = Student.find_by_id(1)
 ```
+
+## Foreign Keys
+
+To add a reference to an existing model, we can use the following `add_reference` method in a migration file:
+
+```ruby
+add_reference :table_name, :model, foreign_key: true
+```
+
+Take note that this follows the convention where it generates a suffixed `_id` field in the current model. 
+
+We then modify both models to reference the one to many relationship using `belongs_to :model` and `has_many :pluralized_models`.
+
+For example if `student belongs_to course` and `course has_many students`:
+
+Migration file:
+
+```ruby
+add_reference(:students, :course, foreign_key: true)
+```
+
+In `app/models/student.rb`:
+
+```ruby
+belongs_to :course
+```
+
+In `app/models/course.rb`:
+
+```ruby
+has_many :students
+```
+
+Using these symbols will translate to a database query. For example:
+
+```ruby
+course = Course.find(1)
+course.students
+```
+
+is the same as:
+
+```ruby
+students = Student.where(course_id: 1)
+```
